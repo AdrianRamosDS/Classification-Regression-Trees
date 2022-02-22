@@ -9,3 +9,11 @@ reg_tree <- rpart(formula = Collection~.,
 
 # Visualize decision tree
 rpart.plot(reg_tree, box.palette = "RdBu", digits = -3)
+
+# Model evaluation
+test <- test %>%  mutate(pred = predict(reg_tree,test, type = "vector"),
+                         dif_Coll_pred = Collection - pred,
+                         n = 1:nrow(test)
+                         ) 
+
+colnames(test)
