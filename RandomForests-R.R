@@ -1,6 +1,7 @@
 library("rpart")
 library("rpart.plot")
 
+library("ggplot2")
 
 # Regression model (train)
 reg_tree <- rpart(formula = Collection~.,
@@ -17,3 +18,8 @@ test <- test %>%  mutate(pred = predict(reg_tree,test, type = "vector"),
                          ) 
 
 colnames(test)
+
+# Plot
+ggplot(test) +
+  geom_point(aes(x=n, y =dif_Coll_pred))+
+  ggtitle("Diferencia entre Real y Predictor")
