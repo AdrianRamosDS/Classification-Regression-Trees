@@ -45,3 +45,10 @@ mincp
 
 mincp2 <- reg_tree$cptable[which.min(reg_tree$cptable[,"xerror"]),"CP"]
 mincp2
+
+prune_tree <- prune(full_tree, cp = mincp)
+rpart.plot(prune_tree, box.palette = "RdBu", digits = -3)
+
+prune_tree2 <- prune(full_tree, cp = mincp2)
+rpart.plot(prune_tree2, box.palette = "RdBu", digits = -3)
+
