@@ -23,3 +23,8 @@ colnames(test)
 ggplot(test) +
   geom_point(aes(x=n, y =dif_Coll_pred))+
   ggtitle("Diferencia entre Real y Predictor")
+
+# MSE2 
+
+MSE2 <- mean((test$pred-test$Collection)^2)
+MSE2 
