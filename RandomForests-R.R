@@ -38,3 +38,10 @@ printcp(full_tree)
 
 plotcp(full_tree)
 plotcp(reg_tree)
+
+
+mincp <- full_tree$cptable[which.min(full_tree$cptable[,"xerror"]),"CP"]
+mincp
+
+mincp2 <- reg_tree$cptable[which.min(reg_tree$cptable[,"xerror"]),"CP"]
+mincp2
