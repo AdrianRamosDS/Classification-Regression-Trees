@@ -28,3 +28,13 @@ ggplot(test) +
 
 MSE2 <- mean((test$pred-test$Collection)^2)
 MSE2 
+
+full_tree <- rpart(formula = Collection~.,
+                   data = train, 
+                   control = rpart.control(cp = 0))
+rpart.plot(full_tree, box.palette = "RdBu", digits = -3)
+
+printcp(full_tree)
+
+plotcp(full_tree)
+plotcp(reg_tree)
